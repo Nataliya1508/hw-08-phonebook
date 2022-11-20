@@ -1,3 +1,42 @@
+/* .filter {
+  margin-bottom: 10px;
+  text-align: center;
+  margin-left: 10px;
+}
+
+.input {
+  box-shadow: 0 14px 28px #d9cfe7, 0 10px 10px #722f37;
+  height: 15px;
+  border-radius: 6px;
+}
+
+.filterName {
+  font-size: 15px;
+  margin-right: 20px;
+  color: #722f37;
+  font-weight: 500;
+}
+
+.contactsTitle {
+  text-align: left;
+  font-size: 25px;
+  color: black;
+  font-weight: bolder;
+  text-shadow: 0 14px 28px #d9cfe7, 0 10px 10px #722f37;
+}
+
+.filterLabel {
+  display: inline-block;
+  text-align: left;
+}
+
+.userNameStyle {
+  color: rgb(108, 8, 165);
+  font-weight: bold;
+  text-shadow: 0 14px 28px #d9cfe7, 0 10px 10px rgb(108, 8, 165);
+  margin-left: 10px;
+} */
+
 .filter {
   margin: 5px 0;
   border: 1px solid grey;

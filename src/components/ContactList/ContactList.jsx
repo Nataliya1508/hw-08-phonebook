@@ -1,45 +1,62 @@
-import { React } from 'react';
-import ContactListItem from 'components/ContactListItem/ContactListItem';
+import React from 'react';
+import ContactListItem from 'components/ContactListItem';
 import { useEffect } from 'react';
-import { getContacts, getFilteredContacts, isLoading } from 'redux/contacts/contactsSelectors';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchContactsCreate } from 'redux/contacts/contactsOperations'
+import PropTypes from 'prop-types';
+// import { contactsOperations, contactsSelectors } from 'redux/contacts';
+import { getContacts, getFilteredContacts, IsLoading } from 'redux/contacts/contactsSelectors';
+import { fetchContacts } from 'redux/contacts/contactsOperations'
+// import Loader from 'components/Loader/loader';
 import styles from './ContactList.module.css';
-import Loader from 'components/Loader/Loader';
 
 
-
-
-
-export const ContactList = () => { 
+const ContactList = () => {
   const contacts = useSelector(getContacts);
   const value = useSelector(getFilteredContacts);
-   const loading = useSelector(isLoading);
+  // const loading = useSelector(IsLoading);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   useEffect(() => {
-    dispatch(fetchContactsCreate());
-  }, [dispatch]);
-  
-   const filtersContacts = () => {
+    dispatch(fetchContacts());
+  }, [dispatch, contacts, value]);
+
+  const getFilteredNames = () => {
     return contacts.filter(contact =>
       contact.name.toLowerCase().includes(value)
     );
   };
-  const contactsMap = value === '' ? contacts : filtersContacts();
 
- if (loading) {
-    return <Loader />;
-  }
+  const contactsMap = value === '' ? contacts : getFilteredNames();
+  
+  //  if (loading) {
+  //   return <Loader />;
+  // }
 
-    return (
+  return (
+    // <div className={style.listWrapper}>
+    //   {contacts.length > 0 &&
+    //     searchContact.map(({ id, number, name }) => {
+    //       return (
+    //         <ContactListItem key={id} id={id} name={name} number={number} />
+    //       );
+    //     })}
+    // </div>
      <div className={styles.contacts}>
       {contactsMap.map(({ id, phone, name }) => {
         return <ContactListItem key={id} id={id} name={name} number={phone} />;
       })}
     </div>
   );
+};
+
+ContactList.propTypes = {
+  id: PropTypes.string,
+  name: PropTypes.string,
+  number: PropTypes.string,
 };
 
 export default ContactList;

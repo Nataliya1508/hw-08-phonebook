@@ -9,7 +9,37 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  background-color: #a9e3f5;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+
+  background-size: cover;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.phonebook-wrapper {
+  border: 2px solid #722f37;
+  width: 300px;
+  border-radius: 10px;
+  background-color: #d9cfe7;
+  box-shadow: 0 14px 28px #d9cfe7, 0 10px 10px #722f37;
+}
+
+.phonebook {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.top {
+  margin-bottom: 5px;
+}
+
+.title {
+  text-shadow: 0 14px 28px #d9cfe7, 0 10px 10px #722f37;
 }

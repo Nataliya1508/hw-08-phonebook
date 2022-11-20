@@ -1,0 +1,13 @@
+.wrapper {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.phonebookTitle {
+  text-align: left;
+}
+
+.contactsTitle {
+  text-align: right;
+}

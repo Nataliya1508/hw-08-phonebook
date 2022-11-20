@@ -1,17 +1,20 @@
-import { MutatingDots } from 'react-loader-spinner';
+import { Oval } from 'react-loader-spinner';
+import style from './Loader.module.css';
 
 const Loader = () => {
-  <MutatingDots
-    height="100"
-    width="100"
-    color="#4fa94d"
-    secondaryColor="#4fa94d"
-    radius="12.5"
-    ariaLabel="mutating-dots-loading"
-    wrapperStyle={{}}
-    wrapperClass=""
-    visible={true}
-  />;
+  return (
+    <div className={style.loader}>
+      <Oval
+        ariaLabel="loading-indicator"
+        height={100}
+        width={100}
+        strokeWidth={5}
+        strokeWidthSecondary={1}
+        color="#722f37"
+        secondaryColor="white"
+      />
+    </div>
+  );
 };
 
 export default Loader;

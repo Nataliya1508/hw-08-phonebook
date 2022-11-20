@@ -1,57 +1,58 @@
-
 import { useState } from 'react';
-import { addContactsCreate } from 'redux/contacts/contactsOperations';
-import { getContacts } from 'redux/contacts/contactsSelectors';
+import { contactsOperations } from 'redux/contacts';
+import { contactsSelectors } from 'redux/contacts';
 import { useDispatch, useSelector } from 'react-redux';
+
+// import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
+import Notiflix from 'notiflix';
 import styles from './ContactForm.module.css';
 
 export default function ContactForm() {
     const [name, setName] = useState('');
     const [number, setNumber] = useState('');
 
-const contacts = useSelector(getContacts);
-    const dispatch = useDispatch();
+  const contacts = useSelector(contactsSelectors.getContacts);
+  const dispatch = useDispatch();
 
-
-     const nameId = nanoid();
+  const nameId = nanoid();
     const numberId = nanoid();
 
+  const handleFormSubmit = event => {
+    event.preventDefault();
+    const contactFinder = contacts.find(
+      contact => contact.name.toLowerCase() === name.toLowerCase()
+    );
 
-   const handleChangeForm = (e) => {
-        const { name, value } = e.currentTarget;
-       
-       switch (name) {
-           case "name":
-               setName(value);
-               break;
-           
-           case "number":
-               setNumber(value);
-               break;
-           default:
-               return;
-}
+    if (!contactFinder) {
+      dispatch(contactsOperations.addContacts({ name, number }));
+      Notiflix.Notify.info('Contact created');
+      setName('');
+      setNumber('');
     }
+    if (contactFinder) {
+      Notiflix.Notify.info(`${name} is already in contacts`);
+      setName('');
+      setNumber('');
+    }
+  };
 
-    
-    const handleFormSubmit = e => {
-        e.preventDefault()
+  const handleChangeForm = event => {
+    const { name, value } = event.currentTarget;
 
-        const addNewContact = { name, number, id: nanoid() };
-            
-        if (contacts.find(
-            contact => name.toLocaleLowerCase() === contact.name.toLocaleLowerCase())) {
-            alert(`${name} is already in contacts`)
-        } else {
-            dispatch(addContactsCreate(addNewContact))
-              setName('')
-             setNumber('')
-      }
-}
+    switch (name) {
+      case 'name':
+        setName(value);
+        break;
+      case 'number':
+        setNumber(value);
+        break;
+      default:
+        break;
+    }
+  };
 
-
-    return (
+ return (
         <div className={styles.phonebook}>
             <h2>Phonebook</h2>
             <form onSubmit={handleFormSubmit}>
@@ -88,5 +89,3 @@ const contacts = useSelector(getContacts);
         </div>
     );
 };
-
- 
