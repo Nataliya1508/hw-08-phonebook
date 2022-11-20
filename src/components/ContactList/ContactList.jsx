@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 // import { contactsOperations, contactsSelectors } from 'redux/contacts';
-import { getContacts, getFilteredContacts, IsLoading } from 'redux/contacts/contactsSelectors';
+import { getContacts, getFilteredContacts} from 'redux/contacts/contactsSelectors';
 import { fetchContacts } from 'redux/contacts/contactsOperations'
 // import Loader from 'components/Loader/loader';
 import styles from './ContactList.module.css';
