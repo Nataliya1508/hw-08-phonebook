@@ -1,9 +1,10 @@
 import { createReducer } from '@reduxjs/toolkit';
-import {
-  fetchContacts,
-  addContacts,
-  removeContacts,
-} from './contactsOperations';
+import { fetchContacts, addContacts, removeContacts } from './contactsOperations';
+// import {
+//   fetchContacts,
+//   addContacts,
+//   removeContacts,
+// } from './contactsOperations';
 import { filter } from 'redux/contacts/contactsActions';
 
 const entities = createReducer([], {

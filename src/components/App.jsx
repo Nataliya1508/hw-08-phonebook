@@ -1,12 +1,15 @@
-import styles from 'components/App.module.css';
+
 import { Routes, Route, Navigate } from 'react-router-dom';
-import AppBar from 'components/AppBar';
+// import AppBar from './AppBar/AppBar';
+import AppBar from './AppBar';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCurrentUser } from 'redux/auth/authOperations';
 import { useEffect, lazy, Suspense } from 'react';
 import { authSelectors } from 'redux/auth';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
+// import styles from 'components/AppBar/App.module.css';
+import styles from 'components/AppBar.module.css';
 
 const HomePage = lazy(() => import('pages/HomePage/HomePage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage/RegisterPage'));

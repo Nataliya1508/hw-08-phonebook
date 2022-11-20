@@ -24,11 +24,11 @@ code {
 }
 
 .phonebook-wrapper {
-  border: 2px solid #722f37;
+  border: 2px #160380;
   width: 300px;
   border-radius: 10px;
-  background-color: #d9cfe7;
-  box-shadow: 0 14px 28px #d9cfe7, 0 10px 10px #722f37;
+  background-color: #7db6f7;
+  box-shadow: 0 14px 28px #7db6f7, 0 10px 10px #160380;
 }
 
 .phonebook {
@@ -41,5 +41,5 @@ code {
 }
 
 .title {
-  text-shadow: 0 14px 28px #d9cfe7, 0 10px 10px #722f37;
+  text-shadow: 0 14px 28px #7db6f7 0 10px 10px #160380;
 }
